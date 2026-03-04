@@ -1,0 +1,250 @@
+:root {
+    --text: #1a1a1a;
+    --bg: #FAFAFA;
+    --border: #D1D1D1;
+    --hl: #84a98c;
+    /* Sage green primary */
+    --hl-hover: #52796f;
+    /* Darker sage for hover */
+    --bg-offset: #fff;
+    --error: #ef4444;
+    --success: #84a98c;
+}
+
+[data-theme="dark"] {
+    --text: #f0f0f0;
+    --bg: #121212;
+    --border: #333;
+    --hl: #cad2c5;
+    /* Lighter sage for dark mode */
+    --hl-hover: #84a98c;
+    --bg-offset: #1e1e1e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+}
+
+header {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.icon-btn:hover {
+    background-color: var(--border);
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+p {
+    font-size: 14px;
+    color: #888;
+}
+
+.controls {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.controls label {
+    font-size: 14px;
+}
+
+.controls input {
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    width: 80px;
+    font-family: inherit;
+    background-color: var(--bg-offset);
+    color: var(--text);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.controls input:focus {
+    outline: none;
+    border-color: var(--hl);
+    box-shadow: 0 0 0 2px rgba(132, 169, 140, 0.2);
+}
+
+.drop-zone {
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    background-color: var(--bg-offset);
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.drop-zone.dragover {
+    border-color: var(--hl);
+    background-color: rgba(132, 169, 140, 0.1);
+}
+
+.drop-zone-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.upload-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--hl);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background-color: var(--bg-offset);
+    color: var(--text);
+    text-decoration: none;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--border);
+}
+
+.btn-primary {
+    background-color: var(--hl);
+    color: var(--bg);
+    border-color: var(--hl);
+    width: 100%;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background-color: var(--hl-hover);
+}
+
+.btn-primary:disabled {
+    background-color: var(--border);
+    border-color: var(--border);
+    color: #999;
+    cursor: not-allowed;
+}
+
+.file-list {
+    margin-bottom: 20px;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background: var(--bg-offset);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.remove-btn {
+    cursor: pointer;
+    color: #999;
+    font-weight: bold;
+}
+
+.remove-btn:hover {
+    color: var(--error);
+}
+
+.status-container,
+.success-container,
+.error-container {
+    text-align: center;
+    padding: 40px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-offset);
+}
+
+.spinner {
+    margin: 0 auto 16px;
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--text);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.log-box {
+    margin-top: 15px;
+    padding: 10px;
+    background: #1e1e1e;
+    color: #00ff00;
+    font-family: monospace;
+    font-size: 11px;
+    border-radius: 4px;
+    max-height: 100px;
+    overflow-y: auto;
+    text-align: left;
+}
